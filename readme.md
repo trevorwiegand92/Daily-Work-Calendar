@@ -20,8 +20,6 @@ https://github.com/trevorwiegand92/Daily-Work-Calendar
 
 Screenshots:
 
-![Here's a screenshot of the finished index page.](.images/finished_screenshot.png)
+![Here's a screenshot of the finished index page.](./images/finished_screenshot.png)
 
-![Here's a screenshot of the local storage.](.images/local_storage.png)
-
-
+![Here's a screenshot of the local storage.](./images/local_storage.png)
