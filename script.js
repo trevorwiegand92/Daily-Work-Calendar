@@ -2,21 +2,24 @@ $(document).ready(function () {
 
   let currentDayAndTime = $("#currentDay");
 
+  //function that creates the date and time tracker in the jumbotron.//
   function dateAndTime() {
     let now = moment().format("MMM DD, YYYY [at] hh:mm:ss a");
     currentDayAndTime.text(now);
   }
 
+  //this function displays quick message letting the user know that their appointment was saved to local storage.//
   function showStored() {
-    $("#stored").show().delay(300).fadeOut();
+    $("#stored").show().delay(1000).fadeOut();
 }
 
+  // this function changes the color of each timeblock based on the time of day.//
   function rowColor() {
  
     let theHour = new Date().getHours();
   
 
-    for (i = 9; i < 19; i++) {
+    for (i = 9; i < 18; i++) {
       let checkTime = $(`#hour${i}`);
 
       if (theHour > i) {
@@ -31,6 +34,7 @@ $(document).ready(function () {
     }
   }
 
+  // this function runs the function to display the saved appointment message and saves the user input data into local storage.//
   function saveAppointments() {
     showStored();
 
@@ -66,6 +70,7 @@ $(document).ready(function () {
 
   }
 
+  //this function displays what data has been saved into local storage by the user when the page loads.//
   function showSavedAppointments() {
     let textRow9 = document.querySelector("#info9");
     let savedTask9 = localStorage.getItem("hour9");
@@ -108,6 +113,8 @@ $(document).ready(function () {
     textRow18.textContent = savedTask18;
   }
 
+  //this is the initial function that runs when the page first loads, it starts the date and time tracker, shows what data has been saved to 
+  //local storage, and changes the colors of rows depending if the time is past, present, or future.//
   function init() {
     setInterval(dateAndTime, 1000);
     showSavedAppointments();
@@ -116,5 +123,6 @@ $(document).ready(function () {
 
   init();
 
+  //this is the event listener that allows the user to hit the save button.//
   $(".saveBtn").on("click", saveAppointments);
 });
